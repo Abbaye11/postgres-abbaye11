@@ -1,0 +1,22 @@
+volumes:
+  postgres-abbaye11-data:
+    driver: local
+  
+services:
+    postgres:
+      image: postgres:latest
+      container_name: postgres-abbaye11
+      hostname: postgres-abbaye11
+      environment:
+        POSTGRES_USER: seb
+        POSTGRES_DB: abbaye11
+        POSTGRES_PASSWORD: Seb%11091978
+      volumes:
+        - postgres-abbaye11-data:/var/lib/postgresql/data
+      networks:
+        - abbaye11
+
+networks:
+  abbaye11:
+    name: abbaye11
+    external: true
